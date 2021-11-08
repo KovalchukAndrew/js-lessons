@@ -23,15 +23,40 @@ console.log('lesson 2');
 
 // Task 01
 // Реализовать функцию sum которая суммирует 2 числа следующим образом sum(3)(6) === 9
+/*
+function sum (x: number) {
+    return function (y: number) {
+        return x + y
+    }
+}
+
+console.log(sum(3)(6));
+*/
+
+
 
 // Task 02
 // Реализовать функцию makeCounter которая работает следующим образом:
-// const counter = makeCounter();
-// counter(); // 1
-// counter(); // 2
-// const counter2 = makeCounter();
-// counter2(); // 1
-// counter(); // 3
+
+/*
+function makeCounter() {
+let a = 0
+    return () => {
+        return ++ a
+    }
+
+};
+const counter = makeCounter()
+
+console.log(counter()) ; // 1
+
+console.log(counter()) ;
+const counter2 = makeCounter()
+
+console.log(counter2()) ;
+
+console.log(counter()) ;
+*/
 
 // Task 03
 // Переписать функцию из Task 02 так, что бы она принимала число в качестве аргумента и это число было стартовым значением счетчика
@@ -40,6 +65,31 @@ console.log('lesson 2');
 // decrease: -1
 // reset: установить счетчик в 0;
 // set: установить счетчик в заданное значение;
+
+let makeCounter = (value: number) => {
+    let counterValue = value;
+    return () => {
+        return {
+            increase() {
+                return ++counterValue
+            },
+            decrease() {
+                return --counterValue
+            },
+            reset() {
+                return counterValue = 0
+            },
+            set(x: number) {
+                return counterValue = x
+            }
+        }
+    }
+};
+
+let counter = makeCounter(10);
+console.log(counter().increase())
+
+
 
 // Task 04*
 // Реализовать функцию superSum которая принимает число в качестве аргумента, которое указывает на количество слагаемых
