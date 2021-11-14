@@ -133,7 +133,7 @@ newObj.greeting()
 let One = {name: 'One'};
 let Two = {name: 'Two', sayHello: function() {console.log(`Hello, my name is ${this.name}`)}};
 
-Two.sayHello.bind(One)()
+//Two.sayHello.bind(One)()
 
 // Task 06
 // создайте объект helperObj у которого есть следующие методы:
@@ -141,6 +141,33 @@ Two.sayHello.bind(One)()
 // setAge - устанавливает полученное значение в свойство age объекта
 // greeting - используется функция sayHello из Task 05
 // можно использовать @ts-ignore
+
+/*let helperObj = {
+    changeName: function (name) {
+        this.name = name
+        console.log(this.name)
+    },
+    setAge: function (age) {
+        this.age = age
+        console.log(this.age)
+    },
+    greeting: function () {
+        Two.sayHello.bind(this)()
+    },
+}
+
+let man = {
+    name: "Andrew",
+    age: 28,
+}
+//console.log(man)
+
+helperObj.changeName.bind(man)("Victor")
+//console.log(man)
+//helperObj.setAge.bind(man)(18)
+//console.log(man)
+helperObj.greeting.bind(man)()
+console.log(man)*/
 
 // Bind
 // 1) Дана функция sumTwoNumbers, реализовать функцию bindNumber которая принимает функцию sumTwoNumbers и число, и
