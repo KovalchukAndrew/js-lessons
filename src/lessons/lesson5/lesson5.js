@@ -115,6 +115,7 @@ let counter = {
 // Task 04
 // Написать функцию конструктор myFirstConstructorFunc которая принимает 2 параметра name и age и возвращает объект
 // у которого будут эти свойства и метод greeting из Task 01
+/*
 function myFirstConstructorFunc (name, age) {
     this.name = name;
     this.age = age;
@@ -125,11 +126,14 @@ function myFirstConstructorFunc (name, age) {
 let newObj = new myFirstConstructorFunc("Andrew", 28)
 console.log(newObj)
 newObj.greeting()
+*/
 
 // Task 05 есть 2 объекта One и Two. С помощью bind и метода sayHello заставьте поздороваться объект One
 
-//let One = {name: 'One'};
-//let Two = {name: 'Two', sayHello: function() {console.log(`Hello, my name is ${this.name}`)}};
+let One = {name: 'One'};
+let Two = {name: 'Two', sayHello: function() {console.log(`Hello, my name is ${this.name}`)}};
+
+Two.sayHello.bind(One)()
 
 // Task 06
 // создайте объект helperObj у которого есть следующие методы:
