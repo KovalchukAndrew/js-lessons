@@ -1,3 +1,5 @@
+import {log} from "util";
+
 console.log('Lesson 5');
 
 // Keyword - this
@@ -30,13 +32,13 @@ console.log('Lesson 5');
     age: number;
 }*/
 
-let someObj = {
-    name: 'Eugene',
-    age: 32
-}
-someObj.greeting = function greeting () {
-    console.log(`My name is ${this.name}. I am ${this.age}`)
-}
+// let someObj = {
+//     name: 'Eugene',
+//     age: 32
+// }
+// someObj.greeting = function greeting () {
+//     console.log(`My name is ${this.name}. I am ${this.age}`)
+// }
 //someObj.greeting()
 
 // Task 02
@@ -84,31 +86,31 @@ counter.restCurrentCount();*/
 
 // Task 03
 // переделайте код из Task 02, что бы сработал следующий код:
-let counter = {
-    value: 0,
-    getCurrentCount: function () {
-        console.log(`Текущее значение счетчика - ${this.value}.`)
-    },
-    increment: function () {
-        this.value = ++this.value
-        console.log("Увеличивает значение - " + this.value)
-        return this
-    },
-    decrement: function () {
-        this.value = this.value-1
-        console.log("Уменьшает значение - " + this.value)
-        return this
-    },
-    setCurrentCount: function (newValue) {
-        this.value = newValue
-        console.log(`Текущее значение счетчика - ${this.value}.`)
-        return this
-    },
-    /*restCurrentCount() {
-        this.value = 0
-        console.log(`Текущее значение счетчика - ${this.value}.`)
-    },*/
-}
+// let counter = {
+//     value: 0,
+//     getCurrentCount: function () {
+//         console.log(`Текущее значение счетчика - ${this.value}.`)
+//     },
+//     increment: function () {
+//         this.value = ++this.value
+//         console.log("Увеличивает значение - " + this.value)
+//         return this
+//     },
+//     decrement: function () {
+//         this.value = this.value-1
+//         console.log("Уменьшает значение - " + this.value)
+//         return this
+//     },
+//     setCurrentCount: function (newValue) {
+//         this.value = newValue
+//         console.log(`Текущее значение счетчика - ${this.value}.`)
+//         return this
+//     },
+//     /*restCurrentCount() {
+//         this.value = 0
+//         console.log(`Текущее значение счетчика - ${this.value}.`)
+//     },*/
+// }
 //counter.setCurrentCount(10).increment().increment().decrement()
 
 
@@ -130,8 +132,8 @@ newObj.greeting()
 
 // Task 05 есть 2 объекта One и Two. С помощью bind и метода sayHello заставьте поздороваться объект One
 
-let One = {name: 'One'};
-let Two = {name: 'Two', sayHello: function() {console.log(`Hello, my name is ${this.name}`)}};
+// let One = {name: 'One'};
+// let Two = {name: 'Two', sayHello: function() {console.log(`Hello, my name is ${this.name}`)}};
 
 //Two.sayHello.bind(One)()
 
@@ -180,6 +182,40 @@ console.log(man)*/
 // 4) Создать метод hi у объекта One, который всегда вызывает метод greeting объекта helperObj от имени Two
 
 // Реализовать задачи 2-4 из Bind с помощью Call
+
+/*let p;
+// p = 1;
+//p = '';
+// p = '0';
+ p = function() {};
+
+if (p) {
+    console.log('log')
+} else console.log('error')*/
+
+/*let man = {
+    name: "Andrew"
+}
+function sayHello (word) {
+    console.log(`Hello, my ${word} ${this.name}`)
+}
+
+sayHello.apply(man, ["dear"])*/
+let obj = {
+    name: 'Evgen',
+    sayName(arg, arg2) {
+        console.log('name - ', this.name, arg, arg2);
+        console.log(arg, arg2);
+        return function (arg3) {
+            console.log('name - ', this.name, arg, arg2, arg3);
+        }
+    }
+};
+
+let obj2 = { name: 'Vlad' };
+let obj3 = {name: 'Hanna'};
+
+obj.sayName.apply(obj3)
 
 
 
